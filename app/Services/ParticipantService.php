@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Jobs\Participant\SendRegistrationEmail;
 use App\Models\Participant;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
@@ -46,7 +47,13 @@ class ParticipantService
         $data['qr'] = "{$folder}/{$qrName}";
         QrCode::format('png')->size(512)->margin(1)->generate($qrText, $qrPath);
 
-        return Participant::create($data);
+        $participant = Participant::create($data);
+        if($participant)
+        {
+            SendRegistrationEmail::dispatch($participant->id);
+        }
+
+        return $participant;
     }
 
     public function destroy($uuid)

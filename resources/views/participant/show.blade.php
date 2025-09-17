@@ -4,16 +4,17 @@
 <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-10" x-data="{ showVacc: false }">
     <div class="w-full max-w-2xl bg-white rounded-lg shadow-xl dark:border dark:bg-gray-800 dark:border-gray-700">
         <div class="p-8 space-y-8">
-            
+
             <div class="text-center">
                 <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">
                     Registration Details
                 </h1>
                 <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
                     Thank you for registering! Below are your submitted details and your event QR code.
+                    Kindly check your registered email for the registration confirmation and a copy of your QR code.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="space-y-4">
                     <div>
@@ -76,7 +77,7 @@
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="space-y-6 text-center">
                     <div>
                         <p class="text-xs uppercase text-gray-500 mb-3">Your QR Code</p>
@@ -88,7 +89,7 @@
                         <p class="text-xs font-mono text-gray-700 dark:text-gray-300 break-all mt-2">
                             {{ $participant->uuid }}</p>
                     </div>
-                    
+
                     @if($participant->vaccination_card)
                     <p>
                         <a href="javascript:void(0)" @click="showVacc = true"
@@ -101,7 +102,7 @@
                     @endif
                 </div>
             </div>
-            
+
             <div class="flex items-center justify-center gap-4 pt-4">
                 <a href="{{ route('participant.index') }}"
                     class="inline-flex items-center px-5 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
@@ -127,7 +128,7 @@
             <div x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95"
                 x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-150"
                 x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
-                class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-lg w-full p-6 relative">
+                class="bg-white rounded-lg dark:bg-gray-800 rounded-xl shadow-2xl max-w-lg w-full p-6 relative">
                 <button @click="showVacc = false"
                     class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 hover:text-gray-700 dark:text-gray-300"
                     aria-label="Close vaccination card">✕</button>
