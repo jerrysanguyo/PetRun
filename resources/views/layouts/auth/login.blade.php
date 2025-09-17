@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-800">
-    <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
-        <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
+<body class="bg-gray-100">
+    <div class="flex pt-16 overflow-hidden">
+        <div id="main-content" class="relative w-full h-full overflow-y-auto">
             <main>
                 <div class="mt-16">
                     @yield('content')
