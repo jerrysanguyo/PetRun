@@ -7,7 +7,7 @@
 <div class="w-full p-8 overflow-auto">
     <div class="flex justify-between items-center mb-5">
         <h1 class="text-3xl font-bold text-gray-800">{{ $page_title }} Records</h1>
-
+        @if ($resource === 'account')
         <div x-data="{ showModal: false }">
             <button @click="showModal = true"
                 class="px-5 py-2 text-white bg-pink-600 rounded-lg hover:bg-pink-700 border border-pink-700 transition-colors">
@@ -15,6 +15,7 @@
             </button>
             @include('table.create')
         </div>
+        @endif
     </div>
 
     @include('components.alert')
@@ -33,28 +34,11 @@
                 <tbody>
                     @foreach ($data as $record)
                     <tr class="border-t border-gray-200 dark:border-gray-700 hover:bg-pink-50/60">
-                        <td class="py-2 px-4">{{ $record->name }}</td>
-                        <td class="py-2 px-4">{{ $record->email }}</td>
-                        <td class="py-2 px-4">{{ $record->contact_number }}</td>
-                        <td class="py-2 px-4">{{ $record->getRoleNames()->first() ?? '' }}</td>
-                        <td class="py-2 px-4">
-                            <div class="inline-flex items-center gap-2">
-                                <div x-data="{ showEditModal: false }" class="inline">
-                                    <button @click="showEditModal = true"
-                                        class="p-2 rounded bg-blue-50 text-blue-600 hover:bg-blue-100" title="Edit">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    @include('table.edit')
-                                </div>
-                                <div x-data="{ showDeleteModal: false }" class="inline">
-                                    <button @click="showDeleteModal = true"
-                                        class="p-2 rounded bg-red-50 text-red-600 hover:bg-red-100" title="Delete">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                    @include('table.destroy')
-                                </div>
-                            </div>
-                        </td>
+                        @if ($resource === 'accounts')
+                            @include('table.partial.account')
+                            @else
+                            @include('table.partial.participant')
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>

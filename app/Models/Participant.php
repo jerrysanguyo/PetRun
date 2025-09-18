@@ -18,4 +18,9 @@ class Participant extends Model
         'vaccination_card',
         'qr'
     ];
+
+    public static function getAllParticipants()
+    {
+        return self::select('full_name', 'email', 'contact_number', 'pet_name', 'pet_breed', 'category', 'qr')->get();
+    }
 }
