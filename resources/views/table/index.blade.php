@@ -1,10 +1,12 @@
-{{-- resources/views/table/index.blade.php (your current Blade) --}}
 @extends('layouts.dashboard')
 
 @section('title', 'User tables')
 
 @section('content')
 <div class="w-full p-8 overflow-auto">
+    @if ($resource === 'owner')
+    @include('table.partial.counts')
+    @endif
     <div class="flex justify-between items-center mb-5">
         <h1 class="text-3xl font-bold text-gray-800">{{ $page_title }} Records</h1>
         @if ($resource === 'account')
@@ -14,6 +16,13 @@
                 <i class="fa-solid fa-plus"></i> Add {{ $page_title }}
             </button>
             @include('table.create')
+        </div>
+        @else
+        <div x-data="{ showSlotModal: false }">
+            <button @click="showSlotModal = true"
+                class="px-5 py-2 text-white bg-pink-600 rounded-lg hover:bg-pink-700 border border-pink-700 transition-colors">
+                <i class="fa-solid fa-plus"></i> Add slot
+            </button>
         </div>
         @endif
     </div>
@@ -34,10 +43,10 @@
                 <tbody>
                     @foreach ($data as $record)
                     <tr class="border-t border-gray-200 dark:border-gray-700 hover:bg-pink-50/60">
-                        @if ($resource === 'accounts')
-                            @include('table.partial.account')
-                            @else
-                            @include('table.partial.participant')
+                        @if ($resource === 'account')
+                        @include('table.partial.account')
+                        @else
+                        @include('table.partial.participant')
                         @endif
                     </tr>
                     @endforeach

@@ -47,6 +47,7 @@ Route::middleware('auth')
             Route::get('/account/store', [AuthController::class, 'accountStore'])->name('account.store');
             Route::get('/account/update/{uuid}', [AuthController::class, 'accountUpdate'])->name('account.update');
             Route::get('/account/destroy/{uuid}', [AuthController::class, 'accountDestroy'])->name('account.destroy');
+            Route::get('/participants/count', [DashboardController::class, 'count'])->name('owner.count');
         });
 
         Route::middleware('role:admin')
