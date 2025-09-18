@@ -4,7 +4,7 @@
 <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-10" x-data="{ isSubmitting: false }">
     <div class="w-full max-w-lg bg-white rounded-lg shadow-xl dark:border dark:bg-gray-800 dark:border-gray-700">
         <div class="p-6 space-y-4 sm:p-8">
-
+            @include('components.alert')
             <h1
                 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
                 Register to join the 2025 paw run!

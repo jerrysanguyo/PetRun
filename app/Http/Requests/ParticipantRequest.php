@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Participant;
+use App\Models\Slot;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ParticipantRequest extends FormRequest
@@ -22,6 +24,18 @@ class ParticipantRequest extends FormRequest
             'category'          => 'required|numeric|in:1,2,3',
             'vaccination_card'  => 'required|mimes:png,webp,jpg|max:2048'
         ];
+    }
+
+    public function withValidator($validator): void
+    {
+        $validator->after(function ($validator) {
+            $participantCount = Participant::count();
+
+            $slot = Slot::find(1);
+            if ($slot && ($participantCount >= $slot->slot)) {
+                $validator->errors()->add('name', 'Registration is closed. Maximum number of participants reached.');
+            }
+        });
     }
 
     public function messages(): array

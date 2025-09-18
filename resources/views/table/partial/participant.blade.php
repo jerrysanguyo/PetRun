@@ -12,13 +12,17 @@
         class="inline-flex items-center px-2 py-1 text-sm font-medium text-gray-800 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-300">Not
         Scanned</span>' !!}
 </td>
+
 <td class="py-2 px-4">
     <div class="inline-flex items-center gap-2">
-        <div x-data="{ showParticipantModal: false }" class="inline">
-            <button @click="showParticipantModal = true" class="p-2 rounded bg-blue-50 text-blue-600 hover:bg-blue-100"
-                title="Edit">
+        <div x-data="{ showParticipantModal: false, qrSrc: null }" class="inline">
+            <button
+                @click="showParticipantModal = true; qrSrc = '{{ asset($record->qr) }}'"
+                class="p-2 rounded bg-blue-50 text-blue-600 hover:bg-blue-100"
+                title="View QR Code">
                 <i class="fa-solid fa-eye"></i>
             </button>
+
             @include('table.partial.participantModal')
         </div>
     </div>
