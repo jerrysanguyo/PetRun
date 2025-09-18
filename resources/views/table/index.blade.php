@@ -23,6 +23,7 @@
                 class="w-full sm:w-auto px-5 py-2 text-white bg-pink-600 rounded-lg hover:bg-pink-700 border border-pink-700 transition-colors text-center">
                 <i class="fa-solid fa-plus"></i> Add slot
             </button>
+            @include('table.partial.showModal')
         </div>
         @endif
     </div>

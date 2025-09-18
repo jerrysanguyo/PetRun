@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DataTables\PawRunDataTable;
 use App\Models\Participant;
+use App\Models\Slot;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,6 +16,7 @@ class DashboardController extends Controller
         $columns = ['name', 'email', 'contact number', 'pet', 'kilometer', 'scanned by', 'action'];
         $data = Participant::getAllParticipants();
         $totalParticipants = $data->count();
+        $slot = Slot::where('id', 1)->first();
         return $dataTable->render('table.index', compact(
             'dataTable',
             'page_title',
@@ -22,6 +24,7 @@ class DashboardController extends Controller
             'columns',
             'data',
             'totalParticipants',
+            'slot',
         ));
     }
 
