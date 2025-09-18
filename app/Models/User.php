@@ -50,4 +50,9 @@ class User extends Authenticatable
             'role_id'
         )->where('model_type', self::class);
     }
+
+    public function scanned()
+    {
+        return $this->hasMany(Attendance::class, 'scanned_by');
+    }
 }

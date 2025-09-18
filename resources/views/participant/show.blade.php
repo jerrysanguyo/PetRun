@@ -104,10 +104,17 @@
             </div>
 
             <div class="flex items-center justify-center gap-4 pt-4">
+                @auth
+                <a href="{{ route(Auth::user()->getRoleNames()->first() . '.attendance.index') }}"
+                    class="inline-flex items-center px-5 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
+                    Back to scanning
+                </a>
+                @else
                 <a href="{{ route('participant.index') }}"
                     class="inline-flex items-center px-5 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
                     Back to Registration
                 </a>
+                @endauth
                 @if(!empty($participant->qr ?? ($qrRel ?? '')))
                 <a href="{{ asset($participant->qr ?? $qrRel) }}" download
                     class="inline-flex items-center px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium shadow">

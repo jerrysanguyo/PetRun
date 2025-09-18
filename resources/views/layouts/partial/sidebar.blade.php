@@ -38,6 +38,19 @@
                     </li>
 
                     <li>
+                        <a href="{{ route(Auth::user()->getRoleNames()->first() . '.attendance.index') }}"
+                            class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
+                            <svg class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true">
+                                <path
+                                    d="M4 4h4v2H6v2H4V4zm10 0h6v6h-2V6h-4V4zm6 10v6h-6v-2h4v-4h2zM4 14h2v4h4v2H4v-6zM9 9h6v6H9V9z" />
+                            </svg>
+                            <span class="ml-3" sidebar-toggle-item>QR Code Scanning</span>
+                        </a>
+                    </li>
+
+                    <li>
                         <a href="{{ route(Auth::user()->getRoleNames()->first() . '.account.index') }}"
                             class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
                             <svg class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"

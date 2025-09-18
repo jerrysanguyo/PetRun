@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ParticipantController;
@@ -50,6 +51,8 @@ Route::middleware('auth')
             Route::get('/account/update/{uuid}', [AuthController::class, 'accountUpdate'])->name('account.update');
             Route::get('/account/destroy/{uuid}', [AuthController::class, 'accountDestroy'])->name('account.destroy');
             Route::get('/participants/count', [DashboardController::class, 'count'])->name('owner.count');
+            Route::get('/participants/attendance/qr-scanning', [AttendanceController::class, 'index'])->name('attendance.index');
+            Route::post('/participants/attendance/qr-scanning/store', [AttendanceController::class, 'scanQr'])->name('attendance.store');
         });
 
         Route::middleware('role:admin')

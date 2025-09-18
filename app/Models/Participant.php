@@ -23,4 +23,9 @@ class Participant extends Model
     {
         return self::select('full_name', 'email', 'contact_number', 'pet_name', 'pet_breed', 'category', 'qr')->get();
     }
+
+    public function attendance()
+    {
+        return $this->hasOne(Attendance::class, 'participant_id');
+    }
 }
