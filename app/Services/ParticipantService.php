@@ -73,4 +73,11 @@ class ParticipantService
 
         return $participant;
     }
+
+    public function regenerateQr(array $data)
+    {
+        $participant = Participant::where('email', $data['email'])->firstOrFail();
+
+        return $participant;
+    }
 }

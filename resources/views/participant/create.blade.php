@@ -94,7 +94,7 @@
 
                 <p class="text-sm font-light text-gray-500 dark:text-gray-400 text-center">
                     Already registered but missed your QR code?
-                    <a href="#" class="font-medium text-blue-600 hover:underline">Re-generate QR Code</a>
+                    <a href="{{ route('generate.index') }}" class="font-medium text-blue-600 hover:underline">Re-generate QR Code</a>
                 </p>
             </form>
         </div>

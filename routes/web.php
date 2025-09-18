@@ -11,6 +11,8 @@ Route::middleware('guest')
         Route::post('/participant/registration/store', [ParticipantController::class, 'store'])->name('participant.store');
         Route::get('/login', [AuthController::class, 'login'])->name('login');
         Route::post('/login/authentication', [AuthController::class, 'authenticate'])->middleware('throttle:login')->name('authenticate');
+        Route::get('participant/regenerate-qr', [ParticipantController::class, 'regenerateIndex'])->name('generate.index');
+        Route::post('participant/generating-qr', [ParticipantController::class, 'regenerateQr'])->name('generate.qr');
     });
 
     Route::get('/', function () {

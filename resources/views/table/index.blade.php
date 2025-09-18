@@ -4,6 +4,7 @@
 
 @section('content')
 <div class="w-full p-8 overflow-auto">
+    @include('components.alert')
     @if ($resource === 'owner')
     @include('table.partial.counts')
     @endif
@@ -26,8 +27,6 @@
         </div>
         @endif
     </div>
-
-    @include('components.alert')
 
     <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg rounded-lg w-full p-8">
         <div>

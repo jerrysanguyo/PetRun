@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ParticipantRequest;
+use App\Http\Requests\RegenerateRequest;
 use App\Services\ParticipantService;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,5 +59,24 @@ class ParticipantController extends Controller
         return redirect()
             ->route('participant.show', $participant->uuid)
             ->with('success', 'You have successfully deleted participant\'s ' . $name . ' record.');
+    }
+
+    public function regenerateIndex()
+    {
+        return view('participant.regenerateIndex');
+    }
+
+    public function regenerateQr(RegenerateRequest $request)
+    {
+        $participant = $this->participantService->regenerateQr($request->validated());
+
+        activity()
+            ->performedOn($participant)
+            ->causedBy($participant)
+            ->log('User ' . $participant->name . ' regenerate their QR code.');
+
+        return redirect()
+            ->route('participant.show', $participant->uuid)
+            ->with('success', 'You have successfully regenerate your QR code!');
     }
 }
