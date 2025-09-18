@@ -12,7 +12,7 @@ class DashboardController extends Controller
     {
         $page_title = 'Participants';
         $resource = 'owner';
-        $columns = ['name', 'email', 'contact number', 'pet', 'kilometer', 'action'];
+        $columns = ['name', 'email', 'contact number', 'pet', 'kilometer', 'scanned by', 'action'];
         $data = Participant::getAllParticipants();
         $totalParticipants = $data->count();
         return $dataTable->render('table.index', compact(
@@ -27,7 +27,14 @@ class DashboardController extends Controller
 
     public function count()
     {
-        $count = Participant::count();
-        return response()->json(['count' => $count]);
+        $total = Participant::count();
+        $scanned = Participant::whereHas('attendance')->count();
+        $notScanned = $total - $scanned;
+
+        return response()->json([
+            'total' => $total,
+            'scanned' => $scanned,
+            'not_scanned' => $notScanned,
+        ]);
     }
 }

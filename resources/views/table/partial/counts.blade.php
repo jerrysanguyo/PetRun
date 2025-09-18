@@ -1,15 +1,14 @@
 <div x-data="{
-        total: {{ $totalParticipants }},
+        total: 0,
         scanned: 0,
         notScanned: 0,
         fetchCount() {
             fetch('{{ route(Auth::user()->getRoleNames()->first() . '.owner.count') }}')
                 .then(res => res.json())
                 .then(data => {
-                    this.total = data.count;
-                    // Mock values — replace when backend is ready
-                    this.scanned = Math.floor(data.count * 0.6);
-                    this.notScanned = data.count - this.scanned;
+                    this.total = data.total;
+                    this.scanned = data.scanned;
+                    this.notScanned = data.not_scanned;
                 });
         },
         init() {

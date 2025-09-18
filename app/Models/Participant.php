@@ -21,7 +21,7 @@ class Participant extends Model
 
     public static function getAllParticipants()
     {
-        return self::select('full_name', 'email', 'contact_number', 'pet_name', 'pet_breed', 'category', 'qr')->get();
+        return self::select('id', 'uuid', 'full_name', 'email', 'contact_number', 'pet_name', 'pet_breed', 'category', 'qr')->get();
     }
 
     public function attendance()
