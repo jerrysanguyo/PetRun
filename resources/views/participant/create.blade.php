@@ -12,8 +12,6 @@
             <p class="text-sm text-center text-gray-500 dark:text-gray-400">
                 Sign up your pet and get ready for a fun-filled day of running, barking, and bonding!
             </p>
-
-            @include('components.alert')
             
             <form class="space-y-4" method="POST" action="{{ route('participant.store') }}"
                 enctype="multipart/form-data" x-on:submit="isSubmitting = true">
@@ -100,15 +98,6 @@
                 </p>
             </form>
         </div>
-    </div>
-    
-    <div x-cloak x-show="isSubmitting" x-transition.opacity
-        class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black bg-opacity-90 text-center"
-        style="background-color: rgba(0,0,0,0.9);"
-        aria-hidden="true">
-        <img src="{{ asset('images/dog.gif') }}" alt="Submitting…" class="w-48 h-48 object-contain mb-6"
-            onerror="this.style.display='none';">
-        <p class="text-lg font-semibold text-white">Submitting your registration… please wait 🐶💨</p>
     </div>
 </div>
 @endsection
