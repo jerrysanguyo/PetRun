@@ -9,6 +9,7 @@
             {{ $page_title }} Records
         </h1>
 
+        @role('superadmin|admin')
         @if ($resource === 'account')
         <div x-data="{ showModal: false }" class="w-full sm:w-auto">
             <button @click="showModal = true"
@@ -26,6 +27,7 @@
             @include('table.partial.showModal')
         </div>
         @endif
+        @endrole
     </div>
 
     @include('components.alert')
