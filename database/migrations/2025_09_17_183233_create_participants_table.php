@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('contact_number')->unique();
             $table->string('pet_name');
             $table->string('pet_breed');
-            $table->enum('category', ['1','2','3']);
             $table->string('vaccination_card');
             $table->string('qr');
             $table->timestamps();

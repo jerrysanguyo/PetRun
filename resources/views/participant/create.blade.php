@@ -63,19 +63,6 @@
                 </div>
                 
                 <div>
-                    <label for="category"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
-                    <select name="category" id="category"
-                        class="bg-gray-50 border @error('category') border-red-500 @else border-gray-300 @enderror text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                        <option value="">-- Select Category --</option>
-                        <option value="1" @selected(old('category')=='1' )>1K Run (Small Pets)</option>
-                        <option value="2" @selected(old('category')=='2' )>3K Run (Medium Pets)</option>
-                        <option value="3" @selected(old('category')=='3' )>5K Run (Large Pets)</option>
-                    </select>
-                    @error('category') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror
-                </div>
-                
-                <div>
                     <label for="vaccination_card"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pet Vaccination
                         Card</label>

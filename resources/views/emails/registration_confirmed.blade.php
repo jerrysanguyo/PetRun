@@ -45,8 +45,8 @@
                 <div
                     style="margin: 25px 0; background-color: #f0f8ff; padding: 15px 20px; border-left: 4px solid #28a745; border-radius: 5px;">
                     <p style="margin: 0; font-size: 14px; color: #28a745;">
-                        📍 Location: TLC Park, Laguna Lake Highway/C6 Road, Lower Bicutan, Taguig<br>
-                        📅 Date: August 3, 2025 (Sunday)<br>
+                        📍 Location: TLC Park Concert ground, Laguna Lake Highway/C6 Road, Lower Bicutan, Taguig<br>
+                        📅 Date: September 27, 2025 (Sunday)<br>
                         ⏰ Time: 5:00 AM
                     </p>
                 </div>

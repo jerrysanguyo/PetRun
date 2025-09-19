@@ -15,9 +15,13 @@
             </button>
         </div>
 
-        <div class="flex justify-center py-2">
+        <div class="flex justify-center py-2 gap-4">
             <template x-if="qrSrc">
                 <img :src="qrSrc" alt="QR Code"
+                    class="w-64 h-64 object-contain border border-gray-300 rounded-md shadow" />
+            </template>
+            <template x-if="vacSrc">
+                <img :src="vacSrc" alt="Vaccination Card"
                     class="w-64 h-64 object-contain border border-gray-300 rounded-md shadow" />
             </template>
         </div>

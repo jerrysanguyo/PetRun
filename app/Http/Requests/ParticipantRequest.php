@@ -21,7 +21,6 @@ class ParticipantRequest extends FormRequest
             'contact_number'    => 'required|string|max:11|unique:participants,contact_number',
             'pet_name'          => 'required|string|max:255',
             'pet_breed'         => 'required|string|max:255',
-            'category'          => 'required|numeric|in:1,2,3',
             'vaccination_card'  => 'required|mimes:png,webp,jpg|max:2048'
         ];
     }

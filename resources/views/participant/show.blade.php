@@ -45,37 +45,7 @@
                         <p class="text-base font-semibold text-gray-900 dark:text-white">{{ $participant->pet_breed }}
                         </p>
                     </div>
-
-                    <div>
-                        <p class="text-xs uppercase text-gray-500">Category</p>
-                        <p>
-                            @switch($participant->category)
-                            @case(1)
-                            <span
-                                class="inline-block px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">
-                                1K Run (Small Pets)
-                            </span>
-                            @break
-                            @case(2)
-                            <span
-                                class="inline-block px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">
-                                3K Run (Medium Pets)
-                            </span>
-                            @break
-                            @case(3)
-                            <span
-                                class="inline-block px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
-                                5K Run (Large Pets)
-                            </span>
-                            @break
-                            @default
-                            <span
-                                class="inline-block px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">
-                                {{ $participant->category }}
-                            </span>
-                            @endswitch
-                        </p>
-                    </div>
+                    
                 </div>
 
                 <div class="space-y-6 text-center">

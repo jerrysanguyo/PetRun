@@ -13,7 +13,7 @@ class DashboardController extends Controller
     {
         $page_title = 'Participants';
         $resource = 'owner';
-        $columns = ['name', 'email', 'contact number', 'pet', 'kilometer', 'scanned by', 'action'];
+        $columns = ['name', 'email', 'contact number', 'pet', 'scanned by', 'action'];
         $data = Participant::getAllParticipants();
         $totalParticipants = $data->count();
         $slot = Slot::where('id', 1)->first();

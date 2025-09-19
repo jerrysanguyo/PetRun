@@ -40,17 +40,7 @@ class User extends Authenticatable
             ->select('id','uuid','name','email','contact_number')
             ->get();
     }
-
-    public function roles()
-    {
-        return $this->belongsToMany(
-            Role::class,
-            'model_has_roles',
-            'model_id',      
-            'role_id'
-        )->where('model_type', self::class);
-    }
-
+    
     public function scanned()
     {
         return $this->hasMany(Attendance::class, 'scanned_by');

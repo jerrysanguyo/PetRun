@@ -78,11 +78,11 @@ $(function() {
         columnDefs: [{
                 responsivePriority: 1,
                 targets: 0
-            }, // First column: always show
+            },
             {
                 responsivePriority: 2,
                 targets: -1
-            } // Last column (Action): next priority
+            }
         ],
         dom: '<"flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-3"lf>rt<"flex items-center justify-between mt-4"ip>',
         initComplete: function() {

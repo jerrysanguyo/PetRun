@@ -14,14 +14,13 @@ class Participant extends Model
         'contact_number',
         'pet_name',
         'pet_breed',
-        'category',
         'vaccination_card',
         'qr'
     ];
 
     public static function getAllParticipants()
     {
-        return self::select('id', 'uuid', 'full_name', 'email', 'contact_number', 'pet_name', 'pet_breed', 'category', 'qr')->get();
+        return self::select('id', 'uuid', 'full_name', 'email', 'contact_number', 'pet_name', 'pet_breed', 'qr', 'vaccination_card')->get();
     }
 
     public function attendance()
